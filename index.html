@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brooklyn Stoop Salen</title>
+    <title>Brooklyn Stoop Sale</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
@@ -11,9 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Rowdies:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
 
-    </style>
 </head>
 <body>
 
@@ -108,6 +106,7 @@
         </svg>
     </div>
     <div id='letter'>
+        <div class="letter-contents">
         <h1>From Our Stoop to Yours—Join Our Brooklyn Sale!</h1>
 <!--        <h2>From: Yours Truly</h2>-->
         <div id="dateContainer">
@@ -115,11 +114,11 @@
         <img id="date" src="date.png">
         </div>
         <div id='map' style='width: 400px; height: 300px;'></div>
+        </div>
         <script>
             mapboxgl.accessToken = 'pk.eyJ1IjoiYWVyb25hdXRpY2FsMTgiLCJhIjoiY2x5aXF4MHkyMGd1NTJqcTJmdHZxYnRqbCJ9.VGyaoqu3U49jSue51HMmUA';
             const map = new mapboxgl.Map({
                 container: 'map',
-                // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
                 style: 'mapbox://styles/mapbox/streets-v12',
                 center: [-73.949997, 40.650002],
                 zoom: 8
@@ -131,9 +130,6 @@
                 .addTo(map);
         </script>
     </div>
-<!--    <button onclick='openUp()'>-->
-<!--        Click Here-->
-<!--    </button>-->
 
     <button id="heartButton" onclick="openUp()">Click Here</button>
 </div>
