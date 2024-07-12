@@ -279,6 +279,7 @@ h1{
     font-size: 40px;
     text-align: center; /* Center the text of h1 */
     margin-bottom: 20px;
+    color: #555fae;
 }
 
 #date{
