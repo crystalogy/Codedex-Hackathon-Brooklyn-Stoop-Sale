@@ -1,10 +1,10 @@
 
 body {
     background-image: url('ny-bg.png');
-    background-size: cover; /* Cover the entire page */
-    background-position: center bottom; /* Center horizontally and align to the bottom */
-    background-attachment: fixed; /* Fix background to the viewport */
-    background-color: #FFFEDB; /* Fallback color */
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    background-color: #FFFEDB;
 }
 
 #envelope {
@@ -101,10 +101,10 @@ body.overflow-hidden {
 /*    background-color: white;*/
 /*}*/
 
+
+
 #letter {
     /*display: none; !* Keep it hidden initially *!*/
-    display: flex; /* Enable flexbox layout */
-    flex-direction: column; /* Stack child elements vertically */
     margin-top: 20px;
     position: fixed;
     top: 65%; /* Center vertically */
@@ -276,10 +276,9 @@ h1{
     font-family: "Lilita One", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 40px;
-    text-align: center; 
+    font-size: 50px;
+    text-align: center; /* Center the text of h1 */
     margin-bottom: 20px;
-    color: #555fae;
 }
 
 #date{
@@ -555,13 +554,3 @@ h1{
     }
 }
 
-/*#map {*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    bottom: 0;*/
-/*    width: 100%;*/
-/*}*/
-
-/*!*<!--code from step 5-3 will go here!-->*!*/
-
-/*!*<!--code from step 7 will go here!-->*!*/
