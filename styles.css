@@ -276,9 +276,10 @@ h1{
     font-family: "Lilita One", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 50px;
+    font-size: 40px;
     text-align: center; /* Center the text of h1 */
     margin-bottom: 20px;
+    color: #555FAE;
 }
 
 #date{
