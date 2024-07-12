@@ -1,0 +1,566 @@
+
+body {
+    background-image: url('ny-bg.png');
+    background-size: cover; /* Cover the entire page */
+    background-position: center bottom; /* Center horizontally and align to the bottom */
+    background-attachment: fixed; /* Fix background to the viewport */
+    background-color: #FFFEDB; /* Fallback color */
+}
+
+#envelope {
+    animation: slide-in-elliptic-right-fwd 2s ease-out 0s forwards;
+    -webkit-animation: slide-in-elliptic-right-fwd 2s ease-out 0s forwards;
+}
+
+#envelope {
+    position:absolute;
+    top: calc(50vh - 200px);
+    left: calc(50vw - 150px);
+    width:300px;
+    height:300px;
+    animation: float 3s ease-in-out infinite;
+}
+
+#envelope > * {
+    position:absolute;
+    top: 0;
+    left: 0;
+    display:none;
+}
+
+#back {
+    display:block;
+    z-index:0;
+}
+
+#front {
+    display:block;
+    z-index:10;
+}
+
+#top {
+    display:block;
+    z-index:11;
+}
+
+#top.animate, #front.animate, #back.animate, #envelope button.animate {
+    opacity:0;
+    transition: opacity 1s;
+    transition-delay: 1s;
+}
+
+/*#letter {*/
+/*    display:flex;*/
+/*    flex-direction:column;*/
+/*    justify-content:space-around;*/
+/*    align-items:center;*/
+/*    background-color: white;*/
+/*    padding:10px;*/
+/*    z-index:5;*/
+/*    left:15px;*/
+/*    right:15px;*/
+/*    bottom:5px;*/
+/*    top:105px;*/
+/*    !* https://boxshadows.com/presets *!*/
+/*    box-shadow:0px 1px 3px 0px rgba(0,0,0,0.1) , 0px 1px 2px 0px rgba(0,0,0,0.06) ;*/
+/*    overflow:hidden;*/
+/*    font-family: 'Handlee', cursive;*/
+/*    font-size:16px;*/
+/*}*/
+
+
+
+body.overflow-hidden {
+    overflow: hidden; /* Prevent scrolling when the letter is open */
+}
+
+
+
+
+body.overflow-hidden {
+    overflow: hidden; /* Prevent scrolling when the letter is open */
+}
+
+/*#letter {*/
+/*    display: none; !* Add this line to initially hide the letter *!*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100vh;*/
+/*    flex-direction: column;*/
+/*    overflow: auto; !* Allow scrolling within the letter if content exceeds the height *!*/
+
+/*    !*justify-content: space-around;*!*/
+/*    align-items: center;*/
+/*    padding: 10px;*/
+/*    z-index: 5;*/
+/*    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px 0px rgba(0,0,0,0.06);*/
+/*    font-family: 'Handlee', cursive;*/
+/*    font-size: 16px;*/
+/*    background-color: white;*/
+/*}*/
+
+#letter {
+    /*display: none; !* Keep it hidden initially *!*/
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Stack child elements vertically */
+    margin-top: 20px;
+    position: fixed;
+    top: 65%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: auto; /* Adjust based on content */
+    max-width: 600px; /* Adjust based on content size */
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000; /* Ensure it's above other content */
+    overflow: auto; /* Scroll if content is too large */
+}
+
+
+#letter.animate {
+    animation:makebig 2s forwards;
+    animation-delay: 1s;
+}
+
+/*@keyframes makebig {*/
+/*    0% { top: 105px; left: 15px; right: 15px; bottom: 5px; font-size:16px;}*/
+/*    33% { top: -100px; left: 15px; right: 15px; bottom: 150px; font-size:16px; }*/
+/*    100% { top: -100px; left: -25px; right: -25px; bottom: -100px;font-size: 24px; }*/
+/*}*/
+
+@keyframes makebig {
+    0% { transform: translate(-50%, -50%) scale(0.5); font-size:16px;}
+    100% { transform: translate(-50%, -50%) scale(1); font-size: 24px; }
+}
+
+
+/*@keyframes makebig {*/
+/*    0% { top: 105px; left: 35%; right: 35%; bottom: 5px; font-size:16px;}*/
+/*    33% { top: -100px; left: 35%; right: 35%; bottom: 150px; font-size:16px; }*/
+/*    100% { top: -100px; left: -55%; right: -55%; bottom: -100px; font-size: 24px; width: 90%; }*/
+/*}*/
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+
+.at-container {
+    display: block ;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    height: 100vh; /* Adjusted to fill the viewport height */
+}
+
+
+#envelope.at-item {
+    width: 300px; /* Adjusted to match the envelope size */
+    height: 300px; /* Adjusted to match the envelope size */
+    background-color: transparent; /* Adjusted to maintain envelope appearance */
+
+    animation-name: swirl-in-br-clock;
+    animation-duration: 1.9s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+@keyframes swirl-in-br-clock {
+    0% {
+        transform: rotate(-540deg) scale(0);
+        transform-origin: 100% 100%;
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0) scale(1.2);
+        transform-origin: 100% 100%;
+        opacity: 1;
+    }
+}
+
+
+
+
+/*#letter h1 {*/
+/*    font-size:inherit;*/
+/*}*/
+
+#letter h2 {
+    font-size:inherit;
+}
+
+/*#letter img {*/
+/*    height:50%;*/
+/*}*/
+
+/*#envelope button {*/
+/*    display:block;*/
+/*    z-index:15;*/
+/*    width:50px;*/
+/*    height:50px;*/
+/*    border-radius:50%;*/
+/*    border:none;*/
+/*    background-color:gold;*/
+/*    font-weight:bold;*/
+/*    text-align: center;*/
+/*    color:white;*/
+/*    cursor:pointer;*/
+/*    top:calc(200px - 25px);*/
+/*    left:calc(150px - 25px);*/
+/*    transition: transform 1s, background-color 1s, color 1s;*/
+/*}*/
+
+/*#envelope button:hover {*/
+/*    background-color:pink;*/
+/*    transform:scale(1.5);*/
+/*    color: black;*/
+/*    transition: transform 1s, background-color 1s, color 1s;*/
+/*}*/
+
+
+
+#envelope button {
+    display: block;
+    z-index: 15;
+    width: 60px; /* Adjust based on the size of your image */
+    height: 60px; /* Adjust based on the size of your image */
+
+    border: none;
+    background-image: url('heart-sticker.png');
+    background-size: cover; /* or 'contain' based on your preference */
+    background-position: center;
+    cursor: pointer;
+    top: calc(200px - 30px);
+    left: calc(150px - 30px);
+    transition: transform 1s, background-color 1s, color 1s;
+}
+
+#envelope button:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+#envelope button {
+    background-color: transparent;
+}
+
+#letter.show-letter {
+    display: flex; /* This line ensures that the letter becomes visible */
+    animation: showLetterAnimation 2s forwards;
+}
+
+@keyframes showLetterAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+h1{
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+    text-align: center; /* Center the text of h1 */
+    margin-bottom: 20px;
+}
+
+#date{
+    width: 220px;
+    display: block; /* Ensure the image is treated as a block-level element */
+    margin: 0 auto; /* Center the image */
+    width: 220px; /* Adjust width as needed */
+}
+
+
+
+.container {
+    left: 0; /* Move to the far left */
+    bottom: 0; /* Align to the bottom */
+    transform: translate(-10%, 10%); /* Adjust as needed to move more to the left and bottom */
+    width: 300px; /* Keep the width */
+    height: 100%; /* Keep the height */
+    /*margin: 50px;*/
+}
+
+.box {
+    position: relative;
+    width: 180px;
+    height: 80px;
+    margin: 150px auto;
+    transform: rotate(-10deg);
+}
+
+.side {
+    background-color: #D0487B;
+    width: 40px;
+    height: 79px;
+    border: 4px solid black;
+    transform: perspective(240px) rotateY(-17deg);
+}
+
+.speaker {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    bottom: 0;
+
+    li {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        margin-bottom: 2px;
+    }
+}
+
+.main{
+    width: 140px;
+    height: 79px;
+    border: 4px solid black;
+    background-color: #FCD55D;
+    transform: perspective(240px) rotateY(7deg);
+    position: absolute;
+    top: 0;
+    left: 45px;
+}
+
+.left {
+    background-color:#EA76A3;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    border-top: 4px solid black;
+    border-right: 4px solid black;
+
+    &:before {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #7170AA;
+        border: 4px solid black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+
+.right {
+    background-color:#EA76A3;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-top: 4px solid black;
+    border-left: 4px solid black;
+
+    &:before {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #7170AA;
+        border: 4px solid black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+
+.cass-buttons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    bottom: 0px;
+    left: 55px;
+    text-align: center;
+
+    li {
+        width: 4px;
+        height: 4px;
+        background-color: black;
+        display: inline-block;
+    }
+}
+
+.cassette {
+    background-color:#7170AA;
+    width: 32px;
+    height: 20px;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    position: absolute;
+    left: 54px;
+    bottom: 15px;
+}
+
+.tape {
+    background-color:#C0E8F7;
+    width: 22px;
+    height: 10px;
+    margin: 5px;
+}
+
+.tuner {
+    display: flex;
+    align-items: center;
+    padding: 2.5px;
+    justify-content: space-between;
+}
+
+.button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 4px solid black;
+    background-color:#7170AA;
+}
+
+.tuner-bar {
+    width: 80px;
+    height: 10px;
+    background-color: #C0E7F6;
+    border: 4px solid black;
+    position: relative;
+    &:before {
+        content: '';
+        display:  block;
+        width: 4px;
+        height: 10px;
+        background-color: #D0487B;
+        position: absolute;
+        left: 50%;
+        animation: animation 3s ease-in-out infinite;
+    }
+}
+
+.handle {
+    position: absolute;
+    top: -40px;
+    left: -30px;
+}
+
+.handle-bar {
+    width: 160px;
+    height: 10px;
+    background-color: black;
+    border-radius: 4px 4px 0 0;
+
+    &:after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 26px;
+        background-color: black;
+        position: absolute;
+        top: 10px;
+        right: 0;
+    }
+}
+
+.handle-side {
+    width: 10px;
+    height: 50px;
+    background-color: black;
+    &:before {
+        position: absolute;
+        bottom: 0;
+        left: 7px;
+        content:'';
+        display: block;
+        width:10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 4px;
+    }
+}
+
+.ariel {
+    width: 5px;
+    height: 60px;
+    background-color: black;
+    position: absolute;
+    top: -60px;
+    transform: rotate(-5deg);
+}
+
+.top-buttons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    z-index: 1;
+
+    li {
+        display: inline-block;
+        width: 8px;
+        height: 4px;
+        background-color: #d0487b;
+
+        &:nth-child(3) {
+            margin-right: 10px;
+        }
+    }
+}
+
+.shadow {
+    width: 180px;
+    height: 40px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    bottom: -70px;
+    transform: translateX(-50%);
+}
+
+@keyframes animation {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: 90%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+/*#map {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*}*/
+
+/*!*<!--code from step 5-3 will go here!-->*!*/
+
+/*!*<!--code from step 7 will go here!-->*!*/

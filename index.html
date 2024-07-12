@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envelope Animation</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Rowdies:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+    </style>
+</head>
+<body>
+
+<!--<div class="flex-container">-->
+<div class="container">
+    <div class="box">
+        <div class="side">
+            <ul class="speaker">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="main">
+            <ul class="top-buttons">
+                <li></li>
+                <li></li>
+                <li></li>
+
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="ariel"></div>
+            <div class="handle">
+                <div class="handle-bar"></div>
+                <div class="handle-side"></div>
+            </div>
+            <div class="tuner">
+                <div class="button"></div>
+                <div class="tuner-bar"></div>
+                <div class="button"></div>
+            </div>
+            <ul class="cass-buttons">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="cassette">
+                <div class="tape"></div>
+            </div>
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+    </div>
+
+    <div class="shadow"></div>
+</div>
+
+
+<div id="at-container">
+<div id='envelope' class='at-item'>
+    <div id='back'>
+        <svg xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink= "http://www.w3.org/1999/xlink"
+             height="300" width="300">
+            <polygon
+                    points="0,100 300,100 300,300 0,300"
+                    style="fill:#eaeaea;stroke:none;stroke-width:0" />
+        </svg>
+    </div>
+    <div id='front'>
+        <svg xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink= "http://www.w3.org/1999/xlink"
+             height="300" width="300">
+
+            <polygon
+                    points="0,100 150,200 300,100 300,300 0,300"
+                    style="fill:#faf9e9; stroke:#97D9E1; stroke-width:3" />
+
+        </svg>
+    </div>
+    <div id='top'>
+        <svg xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink= "http://www.w3.org/1999/xlink"
+             height="300" width="300">
+
+            <polygon
+                    points="0,100 150,200 300,100"
+                    style="fill:#dcd9c4;stroke:#97D9E1;stroke-width:2">
+                <animate id='opentop' attributeName="points" dur="0.5s" fill="freeze"
+                         begin="indefinite"
+                         from="0,100 150,200 300,100"
+                         to="0,100 150,0 300,100"/>
+            </polygon>
+
+        </svg>
+    </div>
+    <div id='letter'>
+        <h1>From Our Stoop to Yours—Join Our Brooklyn Sale!</h1>
+<!--        <h2>From: Yours Truly</h2>-->
+        <div id="dateContainer">
+<!--            <h1>Join Us On:</h1>-->
+        <img id="date" src="date.png">
+        </div>
+        <div id='map' style='width: 400px; height: 300px;'></div>
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYWVyb25hdXRpY2FsMTgiLCJhIjoiY2x5aXF4MHkyMGd1NTJqcTJmdHZxYnRqbCJ9.VGyaoqu3U49jSue51HMmUA';
+            const map = new mapboxgl.Map({
+                container: 'map',
+                // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+                style: 'mapbox://styles/mapbox/streets-v12',
+                center: [-73.949997, 40.650002],
+                zoom: 8
+            });
+
+            // Create a default Marker and add it to the map.
+            const marker1 = new mapboxgl.Marker()
+                .setLngLat([-73.949997, 40.650002])
+                .addTo(map);
+        </script>
+    </div>
+<!--    <button onclick='openUp()'>-->
+<!--        Click Here-->
+<!--    </button>-->
+
+    <button id="heartButton" onclick="openUp()">Click Here</button>
+</div>
+</div>
+<!--</div>-->
+<!--<div class="shadow"></div>-->
+<script src="script.js"></script>
+</body>
+</html>
